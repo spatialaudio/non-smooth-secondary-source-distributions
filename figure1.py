@@ -1,7 +1,7 @@
 """ Generates Figure 1 of the the paper
     Sascha Spors, Frank Schultz, and Hagen Wierstorf. Non-smooth secondary
     source distributions in wave 
-eld synthesis. In German Annual Conference
+field synthesis. In German Annual Conference
     on Acoustics (DAGA), March 2015.
 
     Sound field synthesized by an infitely long vs. semi-infintely long
