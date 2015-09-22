@@ -1,2 +1,4 @@
 # non-smooth-secondary-source-distributions
-Skripts for the paper "Non-smooth secondary source distributions in Wave Field Synthesis" presented at the annual meeting of the Germany acoustical society, 2015, Nuremberg, Germany.
+
+Skripts for the paper Sascha Spors, Frank Schultz, and Hagen Wierstorf. Non-smooth secondary source distributions in wave 
+eld synthesis. In German Annual Conference on Acoustics (DAGA), March 2015.
