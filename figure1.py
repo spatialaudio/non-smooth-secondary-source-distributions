@@ -29,7 +29,7 @@ f = 500  # frequency
 omega = 2 * np.pi * f  # angular frequency
 src_angle = 135
 
-if rect is False:
+if not rect:
     grid = sfs.util.xyz_grid([-2, 2], [-2, 3], 0, spacing=0.02)
 else:
     grid = sfs.util.xyz_grid([-2, 2], [-2, 2], 0, spacing=0.02)
@@ -51,11 +51,11 @@ def compute_sound_field(x0, n0, a0, omega, angle):
 
 
 def plot_objects(ax):
-    if (infinite is True) and (rect is False):
+    if infinite and not rect:
         ax.plot((-2, -2), (-2.2, 3.2), 'k-', lw=4)
-    if infinite is False:
+    if not infinite:
         ax.plot((-2, -2), (-2.2, 2), 'k-', lw=4)
-    if rect is True:
+    if rect:
         ax.plot((-2, 2.2), (2, 2), 'k-', lw=4)
 
     sfs.plot.virtualsource_2d(xs, type='point', ax=ax)
@@ -103,14 +103,14 @@ def plot_sound_field_level(p, xs, twin):
 #  infinitely long linear array
 x0, n0, a0 = sfs.array.linear(2*N, dx, center=[-2, -dx/2, 0])
 # semi-infinte linear array
-if infinite is False:
-    idx = np.squeeze(np.where(x0[:, 1] <= 2+dx/2))
+if not infinite:
+    idx = x0[:, 1] <= 2+dx/2
     x0 = x0[idx, :]
     n0 = n0[idx, :]
     a0 = a0[idx]
     a0[-1] = 1/2 * a0[-1]
 # semi-infinite edge + infinte edge
-if rect is True:
+if rect:
     x00, n00 = sfs.array._rotate_array(x0, n0, [1, 0, 0], [0, -1, 0])
     x00[:, 0] = - x00[:, 0]
     x00 = np.flipud(x00)
@@ -131,7 +131,7 @@ p, twin, xs = compute_sound_field(x0, n0, a0, omega, src_angle)
 
 
 # plot synthesized sound field and its level
-if rect is False:
+if not rect:
     normalization = 0.066  # normalization used for plotting
 else:
     normalization = 0.059  # normalization used for plotting (rect)

@@ -23,7 +23,7 @@ xref = [0, 0, 0]  # reference point
 falias = 1200
 normalization = 0.211  # normalization used for plotting
 
-if compute_field is True:
+if compute_field:
     f = np.asarray([500])  # frequency
     src_angles = np.asarray([135])
     grid = sfs.util.xyz_grid([-2, 2], [-2, 2], 0, spacing=0.02)
@@ -101,7 +101,7 @@ def plot_sound_field(p, xs, twin):
 
 
 # get secondary source positions
-x0, n0, a0 = sfs.array.load('/Users/spors/Documents/src/SFS-python/data/arrays/university_rostock.csv')
+x0, n0, a0 = sfs.array.load('university_rostock.csv')
 
 # correct weights for non-equidistant sampling
 a0 = sfs.array.weights_closed(x0)
@@ -132,7 +132,7 @@ lsactive = np.asarray(lsactive)
 
 
 # plot synthesized sound field for one virtual source position
-if compute_field is True:
+if compute_field:
     p = np.squeeze(p)
     lsactive = np.squeeze(lsactive)
     trajectory = np.squeeze(trajectory)
@@ -141,7 +141,7 @@ if compute_field is True:
     plot_sound_field_level(p/normalization, trajectory, lsactive)
 
 # plot frequency response at one position in sound field for various positions
-if compute_field is False:
+if not compute_field:
 
     fig = plt.figure()
 
