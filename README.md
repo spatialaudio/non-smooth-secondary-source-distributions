@@ -1,4 +1,5 @@
-# Evaluation of non-smooth secondary source distributions in wave 
+# Evaluation of non-smooth secondary source distributions in 
+# wave 
 field synthesis
 
 Code to generate the illustrations in the paper
